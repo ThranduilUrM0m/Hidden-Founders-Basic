@@ -1,15 +1,35 @@
 $white: #fff;
 $black: #000;
+$accent: #ff3a2e;
 $no-color: rgba(0, 0, 255, 0);
 
 body{
 	.container-fluid{
     &.god{
       padding: 0;
+			.navbar-brand{
+				img{
+					width: 8.5rem;
+				}
+			}
     }
     .header{
       background-image: url('https://static.pexels.com/photos/534757/pexels-photo-534757.jpeg');
       background-size: cover;
+			&:before {
+			  content: "";
+			  display: block;
+			  position: fixed; /* could also be absolute */
+			  top: 0;
+			  left: 0;
+			  height: 60vh;
+			  width: 100%;
+			  z-index: 0;
+				background: -moz-linear-gradient(bottom, rgba(56,65,79,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(bottm, rgba(56,65,79,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to top, rgba(56,65,79,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=0 );
+			}
       .container-fluid{
         height: 100%;
         & > .row:first-child{
@@ -17,29 +37,104 @@ body{
           height: 60vh;
           & *{
             color: $white !important;
+						font-family: 'Play', sans-serif;
+						&:not(h1){
+							font-weight: 600;
+						}
           }
+					position: relative;
           .navbar{
             width: 100%;
+						height: max-content;
             background-color: $no-color !important;
-						.navbar-brand{
-							background-image: url('../img/ideadate.png');
+						&.middle{
+							height: unset;
+					    position: absolute;
+					    bottom: 20%;
 						}
+						&.bottom{
+							position: absolute;
+    					bottom: 0;
+							padding-bottom: 0;
+							ul:not(:first-of-type){
+								li{
+									padding: 0 1.5rem;
+									text-transform: uppercase;
+									a {
+										color: #fff;
+										text-transform: uppercase;
+										font-weight: bold;
+										text-decoration: none;
+										&:hover{
+											border-bottom: .2em solid darken($accent, 25%);
+											color: darken($accent, 25%) !important;
+										}
+									}
+									&.active{
+										a {
+											color: $accent !important;
+											border-bottom: .2em solid $accent;
+										}
+									}
+								}
+							}
+						}
+						i{
+							font-size: 1.5rem;
+						}
+						.profile:after{
+							vertical-align: 1em;
+						}
+						.img-circle-profile{
+              background-image: url('https://static.pexels.com/photos/308248/pexels-photo-308248.jpeg');
+              background-size: cover;
+              border-radius: 50%;
+              width: 2.5rem;
+              height: 2.5rem;
+              border: .05rem solid $white;
+							display: inline-block;
+            }
           }
           .middle-header{
             width: 100%;
+						.col-3{
+							text-align: center;
+							text-align: -webkit-center;
+						}
+						.col-7{
+							display: flex;
+						  justify-content: center;
+							flex-direction: column;
+						}
+						.col-2{
+							display: flex;
+						  justify-content: flex-end;
+							.content{
+								align-self: flex-end;
+								.btn-danger{
+									border-radius: 17px;
+									width: 5rem;
+								}
+								.btn-outline-dark{
+									border-radius: 50%;
+							    height: 3rem;
+							    width: 3rem;
+								}
+							}
+						}
             .img-circle{
-              background-image: url('http://www.fubiz.net/wp-content/uploads/2014/11/Lotta-Nieminen_Google_07-640x553.jpg');
+              background-image: url('https://static.pexels.com/photos/556667/pexels-photo-556667.jpeg');
               background-size: cover;
               border-radius: 50%;
-              width: 10rem;
-              height: 10rem;
-              border: .2rem solid $white;
+              width: 12rem;
+              height: 12rem;
+              border: .05rem solid $white;
             }
+						h1{
+							font-family: 'Croissant One', cursive;
+						}
             p:not(:first-of-type){
               font-size: .8rem;
-            }
-            .social{
-              display: inline-table;
             }
           }
         }
