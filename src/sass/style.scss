@@ -2,8 +2,10 @@ $white: #fff;
 $black: #000;
 $accent: #ff3a2e;
 $no-color: rgba(0, 0, 255, 0);
+$break-small: 320px;
 
 body{
+	overflow-x: hidden;
 	.container-fluid{
     &.god{
       padding: 0;
@@ -19,7 +21,7 @@ body{
 			&:before {
 			  content: "";
 			  display: block;
-			  position: fixed; /* could also be absolute */
+			  position: absolute;
 			  top: 0;
 			  left: 0;
 			  height: 60vh;
@@ -270,3 +272,5 @@ body{
     }
   }
 }
+
+@import "mobile-nav";
