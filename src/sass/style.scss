@@ -38,7 +38,7 @@ body{
           height: 100%;
           height: 60vh;
           & *{
-            color: $white !important;
+            color: $white;
 						font-family: 'Play', sans-serif;
 						&:not(h1){
 							font-weight: 600;
@@ -68,14 +68,14 @@ body{
 										font-weight: bold;
 										text-decoration: none;
 										&:hover{
-											border-bottom: .2em solid darken($accent, 25%);
+											border-bottom: .2rem solid darken($accent, 25%);
 											color: darken($accent, 25%) !important;
 										}
 									}
 									&.active{
 										a {
 											color: $accent !important;
-											border-bottom: .2em solid $accent;
+											border-bottom: .2rem solid $accent;
 										}
 									}
 								}
@@ -85,7 +85,7 @@ body{
 							font-size: 1.5rem;
 						}
 						.profile:after{
-							vertical-align: 1em;
+							vertical-align: 1rem;
 						}
 						.img-circle-profile{
               background-image: url('https://static.pexels.com/photos/308248/pexels-photo-308248.jpeg');
@@ -117,10 +117,13 @@ body{
 									border-radius: 17px;
 									width: 5rem;
 								}
-								.btn-outline-dark{
+								.btn-outline-light{
 									border-radius: 50%;
 							    height: 3rem;
 							    width: 3rem;
+									&:hover i{
+										color: $black;
+									}
 								}
 							}
 						}
@@ -151,19 +154,37 @@ body{
             span {
               display: block;
               border-radius: 3px;
-              margin: 1em 1em 0 1em;
-              background-color: #a3a3a3;
-              &._long {
-                  margin-bottom: 1em;
-                  height: 4px;
-                  width: 68px;
-              }
+              margin: 1rem 1rem 0 1rem;
+							&:first-of-type{
+								font-weight: bold;
+							}
+							&._long {
+								&::after{
+							    margin-left: 0.255rem;
+							    vertical-align: -0.5rem;
+							    content: "☆";
+									cursor: pointer;
+							    color: #FFCC00;
+							    text-decoration: none;
+							    display: inline-block;
+							    overflow: hidden;
+								}
+								&:hover::after{
+									content: "★"
+								}
+							}
               &._short {
-                  height: 4px;
-                  width: 48px;
+                margin-top: 0;
+								font-size: 0.7rem;
               }
             }
-            .card {
+						.carousel-control-prev, .carousel-control-next{
+    					top: -5rem;
+							span{
+								margin: 0 !important;
+							}
+						}
+						.card {
               display: flex;
               flex-direction: column;
               border-radius: 4px;
@@ -173,7 +194,8 @@ body{
               padding: 0 0 15px 0;
               width: 100%;
               background: #fff;
-              box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
+              box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0);
+							border: 0;
             }
 
             .card__image {
@@ -188,7 +210,6 @@ body{
               overflow: hidden;
 
               &:hover {
-                cursor: pointer;
                 &:after {
                   bottom: 0;
                   color: rgba(255,255,255,1);
@@ -197,6 +218,13 @@ body{
                 .image-overlay {
                   background-color: rgba(35,155,55,.33);
                   transition: (all .15s);
+									i{
+										cursor: pointer;
+										float: right;
+										margin: 1rem;
+    								color: $white;
+										font-size: 2rem;
+									}
                 }
               }
 
@@ -204,12 +232,12 @@ body{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                bottom: -4em;
+                bottom: -4rem;
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 font-family: "FontAwesome";
-                font-size: 1em;
+                font-size: 1rem;
                 text-align: center;
                 content: "";
                 color: rgba(255, 255, 255, 0);
@@ -225,8 +253,13 @@ body{
                 top: 0;
                 right: 0;
                 content: "\f08a";
-                background-color: rgba (255,255,255,0);
+                background-color: rgba(255,255,255,0);
                 transition: (backgroundColor, .15s);
+								i{
+									float: right;
+									margin: 1rem;
+									color: rgba(255,255,255,0);
+								}
               }
 
               img {
@@ -265,10 +298,17 @@ body{
     }
     .footer{
       height: 20vh;
-      background-color: $black;
+      background-color: rgba(56,65,79,1);
       & *{
         color: $white;
       }
+			.container{
+				height: 100%;
+				.col{
+					display: flex;
+    			align-items: center;
+				}
+			}
     }
   }
 }
